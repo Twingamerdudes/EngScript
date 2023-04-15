@@ -22,6 +22,12 @@ print("What is the name of your output file (ex. main.py): ", end="")
 outputFile = input()
 print("What is the name of your assets folder (ex. assets): ", end="")
 assetsFolder = input()
+print("Do you want (and have access) to GPT-4 to generate code? (y/n): ", end="")
+gpt4 = input()
+if gpt4 == "y":
+    print("GPT-4 has been enabled!")
+else:
+    print("GPT-3.5-turbo has been enabled!")
 print("Creating config file...")
 config = {
     "project-name": projectName,
@@ -29,7 +35,8 @@ config = {
     "libaries": libaries,
     "main-file": mainFile,
     "output-name": outputFile,
-    "assets-folder": assetsFolder
+    "assets-folder": assetsFolder,
+    "gpt4": gpt4
 }
 os.mkdir(f"{projectPath}/{projectName}")
 os.mkdir(f"{projectPath}/{projectName}/assets")

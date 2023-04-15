@@ -28,6 +28,7 @@ def main():
     language = config["language"]
     libaries = config["libaries"]
     assetFolder = config["assets-folder"]
+    gpt4 = config["gpt4"]
     assets = os.listdir(assetFolder)
     #check if the file exists
     if not os.path.exists(programName):
@@ -39,13 +40,22 @@ def main():
     print("Compiling...")
     with open(programName, "r") as f:
         program = f.read()
-        response = openai.ChatCompletion.create(
-            model="gpt-4",
-            messages=[
-                {"role": "system", "content": "You are a AI that is meant to only write code based on what the user says. Each new line is a another addon to the program the user suggests. Do not use markdown formatting. The language you will use is " + language + ". The libaries you will use are " + str(libaries) + ". You may also use other's if you need. The user also has assets in their project, here is a list of their names: " + str(assets) + ". Whenever using a asset, prefix it with assets/ as that is the folder where the assets are stored. Never explain the code or and never do ```python."},
-                {"role": "user", "content": program},
-            ]
-        )
+        if gpt4 == "y":
+            response = openai.ChatCompletion.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "You are a AI that is meant to only write code based on what the user says. Each new line is a another addon to the program the user suggests. Do not use markdown formatting. The language you will use is " + language + ". The libaries you will use are " + str(libaries) + ". You may also use other's if you need. The user also has assets in their project, here is a list of their names: " + str(assets) + ". Whenever using a asset, prefix it with assets/ as that is the folder where the assets are stored. Never explain the code or and never do ```python."},
+                    {"role": "user", "content": program},
+                ]
+            )
+        else:
+            response = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
+                messages=[
+                    {"role": "system", "content": "You are a AI that is meant to only write code based on what the user says. Each new line is a another addon to the program the user suggests. Do not use markdown formatting. The language you will use is " + language + ". The libaries you will use are " + str(libaries) + ". You may also use other's if you need. The user also has assets in their project, here is a list of their names: " + str(assets) + ". Whenever using a asset, prefix it with assets/ as that is the folder where the assets are stored. Never explain the code or and never do ```python."},
+                    {"role": "user", "content": program},
+                ]
+            )
     response = response['choices'][0]['message']['content']
     response = clean(response)
     if not os.path.exists("out"):
