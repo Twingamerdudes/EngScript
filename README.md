@@ -8,7 +8,9 @@ Go into src/.env and add you're OPENAI Key. Then drag all files in the folder in
 
 Then run setup.py and follow it's instructions. Tip: it's based to leave Project Path blank unless you need a more specified path then you're root folder.
 
-That's it!
+**If using GPT-4, make sure you have access, if not, then change the gpt4 variable in you're config.json file and replace the y with n.**
 
 # Using
 Go into main.en and start typing away. Everything is in english (no weird programming syntax here), look at the example programs if you're still confused on how to write programs.
+
+Then to compile you're program, run engscript.py.
