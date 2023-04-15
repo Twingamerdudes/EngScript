@@ -1,0 +1,9 @@
+Make a square
+Add gravity that is appiled every 0.1 second
+When Spacebar is press, make the square jump
+Make sure the square doesn't leave screen bounds
+Make squares that come from the right of the screen and scrolls to the left.
+Other squares y pos is random
+Player is able to shoot the other squares
+Once a different square is shoot, make that square disapper.
+If the player touches a square, end the program.
