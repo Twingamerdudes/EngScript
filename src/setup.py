@@ -1,7 +1,7 @@
 import json
 import os
-if not os.path.exists("enlang.py"):
-    print("enlang.py does not exist! Please make sure that the file is in the current directory and that the name is correct.")
+if not os.path.exists("engscript.py"):
+    print("engscript.py does not exist! Please make sure that the file is in the current directory and that the name is correct.")
     exit()
 print("English Project Setup Tool")
 print("Project Name: ", end="")
@@ -36,11 +36,11 @@ os.mkdir(f"{projectPath}/{projectName}/assets")
 with open(f"{projectPath}/{projectName}/config.json", "w") as f:
     f.write(json.dumps(config))
 print("Config file created!")
-print("Copying enlang.py...")
-with open("enlang.py", "r") as f:
-    with open(f"{projectPath}/{projectName}/enlang.py", "w") as f2:
+print("Copying engscript.py...")
+with open("engscript.py", "r") as f:
+    with open(f"{projectPath}/{projectName}/engscript.py", "w") as f2:
         f2.write(f.read())
-print("enlang.py copied!")
+print("engscript.py copied!")
 print("Copying .env...")
 with open(".env", "r") as f:
     with open(f"{projectPath}/{projectName}/.env", "w") as f2:
