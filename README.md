@@ -3,7 +3,6 @@ It's a programming language, but there's a twist, you program with english.
 
 Yes, **no more dumb programmer errors** (most of the time) and a **easy to read syntax**
 ![](https://github.com/Twingamerdudes/EngScript/blob/main/imgs/EngScript.gif)
-(Ignore how low quality it is)
 
 # Setting up
 Go into src/.env and add you're OPENAI Key. Then drag all files in the folder into the directory of you're project.
